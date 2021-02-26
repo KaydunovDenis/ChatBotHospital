@@ -1,0 +1,40 @@
+{
+  "update_id": 140690066,
+  "message": {
+    "chatId": 509012943,
+    "userMessage": true,
+    "command": true,
+    "channelMessage": false,
+    "reply": false,
+    "groupMessage": false,
+    "superGroupMessage": false,
+    "message_id": 1295,
+    "from": {
+      "bot": false,
+      "id": 509012943,
+      "first_name": "Fox",
+      "is_bot": false,
+      "last_name": "General fox",
+      "language_code": "ru"
+    },
+    "date": 1614354750,
+    "chat": {
+      "superGroupChat": false,
+      "groupChat": false,
+      "userChat": true,
+      "channelChat": false,
+      "id": 509012943,
+      "type": "private",
+      "first_name": "Fox",
+      "last_name": "General fox"
+    },
+    "text": "",
+    "entities": [
+      {
+        "type": "bot_command",
+        "offset": 0,
+        "length": 5
+      }
+    ]
+  }
+}
