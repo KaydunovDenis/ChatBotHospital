@@ -2,6 +2,7 @@ Bean
 # User
 - name
 - surename
+- password
 - year
 - adress
 
@@ -21,6 +22,7 @@ Bean
 # Specialist
 -Name
 -Surname
+- password
 -Special
 -NumberCurrentCabinet
 
@@ -34,3 +36,13 @@ Bean
 # Hospital
 - listSpecialists (Specialist) - список всех врачей
 - listServicce - список услуг
+
+Bean
+# Administrator
+- name
+- Surname
+- password
+
+## AdministratorService
+- blockUser(User user) - запрещает выбранному пациенту использование чат-бота, с целью борьбы с саботажем, хулиганством
+- unBlockUser - разблокировка пациента в чатботе.
