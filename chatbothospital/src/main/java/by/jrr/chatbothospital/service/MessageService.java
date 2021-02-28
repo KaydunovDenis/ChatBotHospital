@@ -1,33 +1,27 @@
 package by.jrr.chatbothospital.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
-import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Service
 public class MessageService {
-    public SendMessage onUpdateReceived(Update update) {
+
+    @Autowired
+    TelegramBotHospital telegramBotHospital;
+
+    public SendMessage sendMessage (Message message, String text) {
         SendMessage sendMessage = new SendMessage();
-        if (update != null){
-            Message message = update.getMessage();
-            sendMessage.setChatId(message.getChatId());
-
-            if (message.hasText()){
-                String magText = message.getText();
-                switch (magText){
-                    case("/start"):
-                        return sendMessage.setText("Hello!");
-                    case("/help"):
-                        return sendMessage.setText("Help!");
-                    case("Hello"):
-                        return sendMessage.setText("Hi friend!");
-
-                    default: return sendMessage.setText("Do no");
-                }
-            }
+        sendMessage.setChatId(message.getChatId().toString());
+        sendMessage.setText(text);
+        try {
+            telegramBotHospital.execute(sendMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
         }
-        return sendMessage.setText("Enter something");
+        return sendMessage;
     }
 }
 

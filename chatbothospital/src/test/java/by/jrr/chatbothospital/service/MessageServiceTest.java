@@ -10,7 +10,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import java.io.File;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MessageServiceTest extends ChatBotHospitalApplicationTests {
 
@@ -18,46 +18,54 @@ class MessageServiceTest extends ChatBotHospitalApplicationTests {
     ObjectMapper objectMapper;
     @Autowired
     MessageService messageService;
+    @Autowired
+    RequestDispatcher requestDispatcher;
+
 
     @Test
     void onUpdateReceived() throws IOException {
         Update update = objectMapper.readValue(new File("src/test/resources/update.json"), Update.class);
-        SendMessage actualResult = messageService.onUpdateReceived(update);
-        SendMessage expectedResult = makeMessage ("Do no");
+        SendMessage actualResult = requestDispatcher.dispatch(update);
+        SendMessage expectedResult = makeMessage ("Sorry, I don't understand you...");
         assertEquals(actualResult, expectedResult);
     }
+
 
     @Test
     void onStartReceived() throws IOException {
         Update update = objectMapper.readValue(new File("src/test/resources/start.json"), Update.class);
-        SendMessage actualResult = messageService.onUpdateReceived(update);
-        SendMessage expectedResult = makeMessage ("Hello!");
+        SendMessage actualResult = requestDispatcher.dispatch(update);
+        SendMessage expectedResult = makeMessage ("Welcome to hospital_chatbot. Nice to meet you!:)");
         assertEquals(actualResult, expectedResult);
     }
 
     @Test
     void onHelpReceived() throws IOException {
         Update update = objectMapper.readValue(new File("src/test/resources/help.json"), Update.class);
-        SendMessage actualResult = messageService.onUpdateReceived(update);
-        SendMessage expectedResult = makeMessage ("Help!");
+        SendMessage actualResult = requestDispatcher.dispatch(update);
+        SendMessage expectedResult = makeMessage (
+                "/start - start dialog \n" +
+                "/help - all commands \n" +
+                "/settings - settings");
         assertEquals(actualResult, expectedResult);
     }
 
     @Test
-    void onHelloReceived() throws IOException {
-        Update update = objectMapper.readValue(new File("src/test/resources/hello.json"), Update.class);
-        SendMessage actualResult = messageService.onUpdateReceived(update);
-        SendMessage expectedResult = makeMessage ("Hi friend!");
+    void onSettingReceived() throws IOException {
+        Update update = objectMapper.readValue(new File("src/test/resources/settings.json"), Update.class);
+        SendMessage actualResult = requestDispatcher.dispatch(update);
+        SendMessage expectedResult = makeMessage ("Nothing you can set now, sorry...");
         assertEquals(actualResult, expectedResult);
     }
 
     @Test
-    void onEmptyReceived() throws IOException {
-        Update update = objectMapper.readValue(new File("src/test/resources/empty.json"), Update.class);
-        SendMessage actualResult = messageService.onUpdateReceived(update);
-        SendMessage expectedResult = makeMessage ("Enter something");
+    void onNoneReceived() throws IOException {
+        Update update = objectMapper.readValue(new File("src/test/resources/none.json"), Update.class);
+        SendMessage actualResult = requestDispatcher.dispatch(update);
+        SendMessage expectedResult = makeMessage ("Sorry, I don't understand you...");
         assertEquals(actualResult, expectedResult);
     }
+
 
     private SendMessage makeMessage (String text) {
         SendMessage sendMessage = new SendMessage();

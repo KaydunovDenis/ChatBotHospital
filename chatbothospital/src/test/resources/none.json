@@ -28,7 +28,7 @@
       "first_name": "Fox",
       "last_name": "General fox"
     },
-    "text": "",
+    "text": "/none",
     "entities": [
       {
         "type": "bot_command",

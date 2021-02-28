@@ -20,13 +20,13 @@ class TelegramBotHospitalTest extends ChatBotHospitalApplicationTests {
     @Autowired
     ObjectMapper objectMapper;
 
-//    @Test
+   //@Test
     void onUpdateReceived() throws IOException {
         Update update = objectMapper.readValue(new File("src/test/resources/update.json"), Update.class);
         telegramBotHospital.onUpdateReceived(update);
     }
 
-//    @Test
+   //@Test
     void sendMessage (){
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(509012943L);
