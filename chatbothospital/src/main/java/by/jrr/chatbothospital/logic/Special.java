@@ -1,7 +1,20 @@
 package by.jrr.chatbothospital.logic;
 
 public enum Special {
-    ТЕРАПЕВТ,
-    ХИРУРГ,
-    НЕВРОЛОГ
+    THERAPIST("ТЕРАПЕВТ"),
+    SURGEON("ХИРУРГ"),
+    NEUROLOGIST("НЕВРОЛОГ"),
+    OTORHINOLARYNGOLOGIST("ОТОРИНОЛАРИНГОЛОГ"),
+    OPHTHALMOLOGIST("ОФТАЛЬМОЛОГ");
+
+    String doctor ;
+
+
+    public String getDoctor() {
+        return doctor;
+    }
+
+    Special(String doctor) {
+        this.doctor = doctor;
+    }
 }

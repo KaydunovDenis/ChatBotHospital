@@ -11,6 +11,7 @@ public class HelpProcessor implements Processor {
     public String run() {
         return "/start - start dialog \n" +
                 "/help - all commands \n" +
-                "/settings - settings";
+                "/settings - settings\n"+
+                "/doctor - doctor";
     }
 }
