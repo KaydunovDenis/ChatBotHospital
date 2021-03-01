@@ -3,18 +3,25 @@ package by.jrr.chatbothospital.logic;
 public class Specialist {
     private String name;
     private String surname;
-    private String password;
-    private String special;//ENUM
+    private String password; //
+    private Special special;//ENUM
     private int numberCurrentCabinet;
     private Order order;
 
-    public Specialist(String name, String surname, String password, String special) {
+    public Specialist(String surname,Special special) {
+        this.surname = surname;
+        this.special = special;
+    }
+
+    public Specialist(String name, String surname, String password, Special special) {
         this.name = name;
         this.surname = surname;
-        this.password = password;
+        this.password = password; //
         this.special = special;
         this.order = new Order(this);
     }
+
+
 
     public String getName() {
         return name;
@@ -40,11 +47,11 @@ public class Specialist {
         this.password = password;
     }
 
-    public String getSpecial() {
+    public Special getSpecial() {
         return special;
     }
 
-    public void setSpecial(String special) {
+    public void setSpecial(Special special) {
         this.special = special;
     }
 

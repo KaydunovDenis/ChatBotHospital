@@ -4,7 +4,8 @@ public enum BotCommands {
     START("/start"),
     HELP("/help"),
     SETTINGS("/settings"),
-    NONE("/none");
+    NONE("/none"),
+    DOCTOR("/doctor");
 
     String command;
 
