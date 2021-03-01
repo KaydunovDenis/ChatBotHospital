@@ -44,9 +44,10 @@ class MessageServiceTest extends ChatBotHospitalApplicationTests {
         Update update = objectMapper.readValue(new File("src/test/resources/help.json"), Update.class);
         SendMessage actualResult = requestDispatcher.dispatch(update);
         SendMessage expectedResult = makeMessage (
-                "/start - start dialog \n" +
-                "/help - all commands \n" +
-                "/settings - settings");
+                        "/start - start dialog \n" +
+                        "/help - all commands \n" +
+                        "/settings - settings\n"+
+                        "/doctor - doctor");
         assertEquals(actualResult, expectedResult);
     }
 
