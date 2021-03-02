@@ -22,8 +22,6 @@ public class Specialist {
         this.order = new Order(this);
     }
 
-
-
     public String getName() {
         return name;
     }
