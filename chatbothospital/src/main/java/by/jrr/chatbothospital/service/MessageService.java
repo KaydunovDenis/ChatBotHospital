@@ -23,5 +23,18 @@ public class MessageService {
         }
         return sendMessage;
     }
+    public SendMessage sendMessage (Message message, String text, InlineKeyboard inlineKeyboard) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(message.getChatId().toString());
+        sendMessage.setText(text);
+        try {
+            telegramBotHospital.execute(inlineKeyboard.getListDoctorsMessage(message.getChatId(), sendMessage.getText()));
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+        return sendMessage;
+    }
+
+
 }
 

@@ -30,13 +30,13 @@ public class Hospital {
         StringBuilder stringBuilder = new StringBuilder(listSpecialist);
         for(int i = 0; i < listSpecialists.size(); i++){
             currentSpecialist = listSpecialists.get(i).toString();
-            stringBuilder.append((i+1)+") ").append(currentSpecialist);
+            stringBuilder.append(i + 1).append(") ").append(currentSpecialist);
         }
         listSpecialist = stringBuilder.toString();
         return listSpecialist;
     }
 
-    public List<Specialist> getListSpecialists() {
-        return listSpecialists;
+    public int getListSpecialistsSize() {
+        return listSpecialists.size();
     }
 }
