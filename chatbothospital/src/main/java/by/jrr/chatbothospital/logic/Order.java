@@ -1,5 +1,8 @@
 package by.jrr.chatbothospital.logic;
 
+
+import org.springframework.stereotype.Service;
+
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
@@ -8,6 +11,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * comporator для сортировки очереди
  * }
  */
+
 public class Order {
     final private Specialist SPECIALIST;
     private CopyOnWriteArrayList listUsersOnOrder;//Нужно использовать потоко безопасную очередь

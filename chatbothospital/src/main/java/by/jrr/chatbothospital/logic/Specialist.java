@@ -8,20 +8,19 @@ public class Specialist {
     private int numberCurrentCabinet;
     private Order order;
 
-    public Specialist(String surname,Special special) {
+    public Specialist(String name, String surname, Special special) {
+        this.name = name;
         this.surname = surname;
         this.special = special;
     }
 
-    public Specialist(String name, String surname, String password, Special special) {
+ /*   public Specialist(String name, String surname, String password, Special special) {
         this.name = name;
         this.surname = surname;
         this.password = password; //
         this.special = special;
         this.order = new Order(this);
-    }
-
-
+    }*/
 
     public String getName() {
         return name;
@@ -85,7 +84,6 @@ public class Specialist {
             return false;
         if (getSpecial() != null ? !getSpecial().equals(that.getSpecial()) : that.getSpecial() != null) return false;
         return getOrder() != null ? getOrder().equals(that.getOrder()) : that.getOrder() == null;
-
     }
 
     @Override
@@ -101,12 +99,6 @@ public class Specialist {
 
     @Override
     public String toString() {
-        return "Specialist{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", special='" + special + '\'' +
-                ", numberCurrentCabinet=" + numberCurrentCabinet +
-                ", order=" + order +
-                '}';
+        return name + " " + surname + " - " + special.doctor + "\n";
     }
 }

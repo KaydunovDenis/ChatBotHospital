@@ -1,9 +1,11 @@
 package by.jrr.chatbothospital.logic;
 
+
 /**
  * User - пациент
  * isBlocking - заблокирован ли пользователь в системе
  */
+
 public class User {
     private String name;
     private String surname;
@@ -12,11 +14,9 @@ public class User {
     private int year;
     private String address;
 
-
-    public User(String name, String surname, String password) {
+    public User(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.password = password;
     }
 
     public String getName() {
