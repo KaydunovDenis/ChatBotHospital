@@ -1,5 +1,8 @@
 package by.jrr.chatbothospital.logic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * User - пациент
  * isBlocking - заблокирован ли пользователь в системе
@@ -11,6 +14,8 @@ public class User {
     private boolean isBlocking = false;
     private int year;
     private String address;
+
+    private List<Order> orderList = new ArrayList<>();
 
 
     public User(String name, String surname, String password) {
