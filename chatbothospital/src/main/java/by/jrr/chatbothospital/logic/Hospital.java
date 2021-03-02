@@ -24,8 +24,16 @@ public class Hospital {
         listSpecialists.add(new Specialist("Василий","Криворко", Special.SURGEON));
     }
 
-    private  String viewSpecial() {
-        return listSpecialists.toString();
+    public String viewSpecial() {
+        String listSpecialist = "";
+        String currentSpecialist;
+        StringBuilder stringBuilder = new StringBuilder(listSpecialist);
+        for(int i = 0; i < listSpecialists.size(); i++){
+            currentSpecialist = listSpecialists.get(i).toString();
+            stringBuilder.append((i+1)+") ").append(currentSpecialist);
+        }
+        listSpecialist = stringBuilder.toString();
+        return listSpecialist;
     }
 
     public List<Specialist> getListSpecialists() {
