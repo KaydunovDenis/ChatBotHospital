@@ -101,12 +101,6 @@ public class Specialist {
 
     @Override
     public String toString() {
-        return "Specialist{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", special='" + special + '\'' +
-                ", numberCurrentCabinet=" + numberCurrentCabinet +
-                ", order=" + order +
-                '}';
+        return name + " " + surname + " - " + special.doctor + "\n";
     }
 }
