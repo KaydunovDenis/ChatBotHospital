@@ -14,13 +14,13 @@ public class Specialist {
         this.special = special;
     }
 
- /*   public Specialist(String name, String surname, String password, Special special) {
+    public Specialist(String name, String surname, String password, Special special) {
         this.name = name;
         this.surname = surname;
         this.password = password; //
         this.special = special;
         this.order = new Order(this);
-    }*/
+    }
 
     public String getName() {
         return name;
