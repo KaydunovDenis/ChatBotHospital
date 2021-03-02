@@ -1,21 +1,20 @@
 package by.jrr.chatbothospital.logic;
 
+
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Component
 public class Hospital {
-
-
     private static List<Specialist> listSpecialists = new ArrayList();// - список всех врачей
 
     static {
         setListSpecialists();
     }
 
-
     ArrayList listService; // список услуг
-
 
     private static void setListSpecialists() {
         listSpecialists.add(new Specialist("Андрей", "Травников",Special.THERAPIST));
@@ -25,12 +24,8 @@ public class Hospital {
         listSpecialists.add(new Specialist("Василий","Криворко", Special.SURGEON));
     }
 
-    /**
-     * - показать категории специалистов
-     */
     private  String viewSpecial() {
         return listSpecialists.toString();
-
     }
 
     public List<Specialist> getListSpecialists() {

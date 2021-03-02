@@ -84,7 +84,6 @@ public class Specialist {
             return false;
         if (getSpecial() != null ? !getSpecial().equals(that.getSpecial()) : that.getSpecial() != null) return false;
         return getOrder() != null ? getOrder().equals(that.getOrder()) : that.getOrder() == null;
-
     }
 
     @Override

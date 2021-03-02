@@ -1,9 +1,6 @@
 package by.jrr.chatbothospital.service;
 
-import by.jrr.chatbothospital.processor.HelpProcessor;
-import by.jrr.chatbothospital.processor.NoneProcessor;
-import by.jrr.chatbothospital.processor.SettingsProcessor;
-import by.jrr.chatbothospital.processor.StartProcessor;
+import by.jrr.chatbothospital.processor.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -24,6 +21,8 @@ public class RequestDispatcher {
     HelpProcessor helpProcessor;
     @Autowired
     NoneProcessor noneProcessor;
+    @Autowired
+    InlineKeyboardProcessor inlineKeyboardProcessor;
 
     public SendMessage dispatch(Update update) {
         switch (getCommand(update)) {
@@ -33,6 +32,8 @@ public class RequestDispatcher {
                 return messageService.sendMessage(update.getMessage(), startProcessor.run());
             case SETTINGS:
                 return messageService.sendMessage(update.getMessage(), settingsProcessor.run());
+            case DOCTOR:
+                return messageService.sendMessage(update.getMessage(),inlineKeyboardProcessor.run());
             case NONE:
                 return messageService.sendMessage(update.getMessage(), noneProcessor.run());
             default:
@@ -51,6 +52,8 @@ public class RequestDispatcher {
                     return BotCommands.START;
                 } else if (msgText.startsWith(BotCommands.SETTINGS.getCommand())) {
                     return BotCommands.SETTINGS;
+                }else if (msgText.startsWith(BotCommands.DOCTOR.getCommand())) {
+                    return BotCommands.DOCTOR;
                 }
             }
         }

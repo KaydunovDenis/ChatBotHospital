@@ -9,7 +9,6 @@ public enum Special {
 
     String doctor ;
 
-
     public String getDoctor() {
         return doctor;
     }

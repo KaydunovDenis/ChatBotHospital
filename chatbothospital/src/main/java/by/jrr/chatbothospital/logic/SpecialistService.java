@@ -1,5 +1,8 @@
 package by.jrr.chatbothospital.logic;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class SpecialistService {
     /**
      * - показывает конкретному специалисту список его будущих пациентов

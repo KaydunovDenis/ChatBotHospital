@@ -1,15 +1,17 @@
 package by.jrr.chatbothospital.processor;
 
-import org.springframework.stereotype.Service;
+import by.jrr.chatbothospital.logic.Hospital;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
+public class InlineKeyboardProcessor implements Processor {
 
-@Service
-public class InlineKeyboardProcessor implements Processor{
-
+    @Autowired
+    Hospital hospital;
 
     @Override
-    public String run()  {
-        return "Doctor";
+    public String run() {
+        return hospital.viewSpecial();
     }
-
 }

@@ -12,10 +12,10 @@ public class User {
     private int year;
     private String address;
 
+
     public User(String name, String surname, String password) {
         this.name = name;
         this.surname = surname;
-        this.password = password;
     }
 
     public User(String name, String surname) {

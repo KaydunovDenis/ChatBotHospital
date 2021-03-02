@@ -14,14 +14,6 @@ public class MessageService {
 
     public SendMessage sendMessage (Message message, String text) {
         SendMessage sendMessage = new SendMessage();
-        if(text.equals("Doctor")){  //
-            try {
-              telegramBotHospital.execute(InlineKeyboard.sendInlineKeyboardMessage(message.getChatId()));
-              return null; // прерываем метод
-            } catch (TelegramApiException e){
-                e.printStackTrace();
-            }
-        }
         sendMessage.setChatId(message.getChatId().toString());
         sendMessage.setText(text);
         try {
@@ -29,10 +21,7 @@ public class MessageService {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-
         return sendMessage;
     }
-
-
 }
 
