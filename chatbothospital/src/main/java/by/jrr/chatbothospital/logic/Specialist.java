@@ -8,7 +8,8 @@ public class Specialist {
     private int numberCurrentCabinet;
     private Order order;
 
-    public Specialist(String surname,Special special) {
+    public Specialist(String name, String surname, Special special) {
+        this.name = name;
         this.surname = surname;
         this.special = special;
     }
