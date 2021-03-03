@@ -33,7 +33,7 @@ public class TelegramBotHospital extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        //  saveJson(update); to save new update.json
+     // saveJson(update); to save new Json
         if (update.hasMessage()) {
             requestDispatcher.dispatch(update);
         } else if (update.hasCallbackQuery()) {
