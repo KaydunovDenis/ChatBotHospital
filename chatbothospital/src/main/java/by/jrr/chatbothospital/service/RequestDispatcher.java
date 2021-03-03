@@ -1,5 +1,6 @@
 package by.jrr.chatbothospital.service;
 
+import by.jrr.chatbothospital.logic.Hospital;
 import by.jrr.chatbothospital.processor.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,7 @@ public class RequestDispatcher {
             case SETTINGS:
                 return messageService.sendMessage(update.getMessage(), settingsProcessor.run());
             case DOCTOR:
-                return messageService.sendMessage(update.getMessage(),inlineKeyboardProcessor.run());
+                return messageService.sendMessage(update, inlineKeyboardProcessor.run(), new InlineKeyboard(new Hospital().getListSpecialistsSize()));
             case NONE:
                 return messageService.sendMessage(update.getMessage(), noneProcessor.run());
             default:
@@ -52,7 +53,7 @@ public class RequestDispatcher {
                     return BotCommands.START;
                 } else if (msgText.startsWith(BotCommands.SETTINGS.getCommand())) {
                     return BotCommands.SETTINGS;
-                }else if (msgText.startsWith(BotCommands.DOCTOR.getCommand())) {
+                } else if (msgText.startsWith(BotCommands.DOCTOR.getCommand())) {
                     return BotCommands.DOCTOR;
                 }
             }

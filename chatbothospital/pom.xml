@@ -17,11 +17,6 @@
 	<description>Chat bot hospital project for Spring Boot</description>
 
 	<properties>
-		<maven.compiler.target>11</maven.compiler.target>
-		<maven.compiler.source>11</maven.compiler.source>
-
-		<!-- lookup parent from repository -->
-	
 		<java.version>11</java.version>
 	</properties>
 

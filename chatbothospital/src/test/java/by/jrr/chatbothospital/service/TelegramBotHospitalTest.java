@@ -29,7 +29,7 @@ class TelegramBotHospitalTest extends ChatBotHospitalApplicationTests {
    //@Test
     void sendMessage (){
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(509012943L);
+        sendMessage.setChatId(400386744L);
         sendMessage.setText("Hello bot");
         try {
             telegramBotHospital.execute(sendMessage);
