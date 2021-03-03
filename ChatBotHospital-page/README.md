@@ -1,2 +1,0 @@
-# ChatBotHospital
-Bot presentation
