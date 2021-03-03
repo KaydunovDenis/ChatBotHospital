@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +23,8 @@ public class TelegramBotHospital extends TelegramLongPollingBot {
     MessageService messageService;
     @Autowired
     RequestDispatcher requestDispatcher;
+    @Autowired
+    CallBackDispatcher callBackDispatcher;
 
     @Value("${bot.username}")
     private String botUsername;
@@ -29,8 +33,13 @@ public class TelegramBotHospital extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-//        saveJson(update);    for save new json files
-        requestDispatcher.dispatch(update);
+        //  saveJson(update); to save new update.json
+        if (update.hasMessage()) {
+            requestDispatcher.dispatch(update);
+        } else if (update.hasCallbackQuery()) {
+            callBackDispatcher.dispatch(update);
+        }
+
     }
 
     @Override
@@ -49,5 +58,6 @@ public class TelegramBotHospital extends TelegramLongPollingBot {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }

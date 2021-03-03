@@ -36,6 +36,10 @@ public class Hospital {
         return listSpecialist;
     }
 
+    public List<Specialist> getListSpecialists() {
+        return listSpecialists;
+    }
+
     public int getListSpecialistsSize() {
         return listSpecialists.size();
     }
