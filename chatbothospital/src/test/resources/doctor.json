@@ -28,7 +28,7 @@
       "first_name": "Влад",
       "username": "v_klda"
     },
-    "text": "/update",
+    "text": "/doctor",
     "entities": [
       {
         "type": "bot_command",
