@@ -1,5 +1,5 @@
 # ChatBotHospital
-Добро пожаловать на страницу разработки [ChatBotHospital|https://kaydunovdenis.github.io/ChatBotHospital]
+Добро пожаловать на страницу разработки [ChatBotHospital](https://kaydunovdenis.github.io/ChatBotHospital)
 
 Чат-бот решает следующие проблемы: 
 1. многочасовое ожидание своей очереди на прием: расчет времени ожидания очереди, прямо из дома можно узнать ориентировочное время в очереди и свою позицию, или к примеру пойти в магазин
